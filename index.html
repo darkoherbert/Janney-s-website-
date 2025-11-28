@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Janney's Import</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- loader (optional) -->
+  <div id="loader" class="loader">
+    <div class="loader-circle"></div>
+  </div>
+
+  <!-- intro / header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><b><h1>Janney's <span>Import</span></h1></b><p class="tag">Dresses • Classic handBags • Facial Products • And More</p></div>
+
+      <div class="controls">
+        <input id="searchInput" type="search" placeholder="Search products..." />
+        <a id="whatsappTop" href="https://wa.me/233557063898" target="_blank" class="whatsapp-header-btn">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+    <nav class="category-bar" id="categoryBar"></nav>
+  </header>
+
+  <!-- main -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <h2> Find stylish dresses, sneakers, kitchen tools & more</h2>
+        <p>Pre-order Only —- Payment Confirm Order</p>
+      </div>
+      <div class="hero-cta">
+        <button id="featuredBtn">Show featured</button>
+      </div>
+    </section>
+
+    <section id="productArea" class="product-area"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Janney's Import | Designed by Herbert</small>
+    </div>
+  </footer>
+
+  <!-- ORDER MODAL -->
+  <div id="orderModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="closeOrderModal">✕</button>
+
+      <div class="modal-grid">
+        <div class="modal-left">
+          <img id="modalImg" src="" alt="product" />
+        </div>
+        <div class="modal-right">
+          <h3 id="modalTitle"></h3>
+          <div id="modalCategory" class="muted"></div>
+          <div id="modalDesc" class="muted small"></div>
+
+          <div id="optionsArea">
+            <!-- dynamic size / color selectors go here -->
+          </div>
+
+          <div class="qty-row">
+            <label>Quantity</label>
+            <div class="qty-controls">
+              <button id="qtyDec" class="btn-ghost">-</button>
+              <div id="qtyVal">1</div>
+              <button id="qtyInc" class="btn-ghost">+</button>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div>Unit Price</div>
+            <div id="unitPrice">GH¢0.00</div>
+          </div>
+
+          <div class="price-row total">
+            <div>Total</div>
+            <div id="totalPrice">GH¢0.00</div>
+          </div>
+
+          <hr />
+
+          <h4>Customer details</h4>
+          <div class="form-row">
+            <input id="custName" placeholder="Your name" />
+            <input id="custPhone" placeholder="Phone number (e.g. 054...)" />
+            <input id="custLocation" placeholder="Location / Address" />
+            <select id="deliveryMethod">
+              <option value="Pickup">Pickup</option>
+              <option value="Delivery">Delivery</option>
+            </select>
+            <textarea id="custNotes" placeholder="Notes (optional)"></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button id="sendWhatsApp" class="btn-primary">Send Order via WhatsApp</button>
+            <button id="cancelOrder" class="btn-ghost">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom nav -->
+  <nav class="bottom-nav">
+    <a class="nav-item" id="navHome"><span>🏠</span><small>Home</small></a>
+    <a class="nav-item" id="navCategory"><span>📂</span><small>Categories</small></a>
+    <a class="nav-item" id="navSearch"><span>🔍</span><small>Search</small></a>
+    <a class="nav-item whatsapp-btn" id="navCart" href="https://wa.me/233557063898" target="_blank"><i class="fab fa-whatsapp"></i><small>WhatsApp</small></a>
+    <a class="nav-item" id="navAccount"><span>👤</span><small>Account</small></a>
+  </nav>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

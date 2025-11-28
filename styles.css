@@ -1,0 +1,198 @@
+:root{
+  --accent:#ff9800;
+  --wh:#ff9800;
+  --muted:#666;
+  --card:#fff;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:#f6f7fb;padding-bottom:80px}
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+
+/* header */
+.site-header{background:#fff;border-bottom:1px solid #eee;padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand h1{margin:0;font-size:20px;font-size: 28px;font-weight: bold;}
+.brand h1 span{color:var(--accent)}
+.controls{display:flex;gap:8px;align-items:center}
+.controls input{padding:8px 10px;border-radius:8px;border:1px solid #ddd;width:220px}
+.whatsapp-header-btn{font-size:20px;color:var(--wh);text-decoration:none}
+
+/* hero */
+.hero{display:flex;justify-content:space-between;align-items:center;padding:24px 0;background-color: #ff9800;border-radius:8px}
+.hero-text h2{margin:0;font-size:20px}
+.hero-cta button{padding:8px 12px;border-radius:8px;background:#fff ;color:#ff9800;border:none}
+ 
+ /*categories*/
+.category-bar{display:flex;gap:10px;padding:10px 0;overflow-x:auto}
+.category-btn{padding:8px 12px;border-radius:999px;border:1px solid #eee;background: #fff;cursor:pointer}
+.category-btn.active{background:var(--accent);color:#fff}
+
+/* product grid */
+.product-area{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:20px 0}
+.product-card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(9,30,63,0.06);display:flex;flex-direction:column}
+.product-card img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+.product-card h3{margin:10px 0 6px;font-size:15px}
+.product-card .muted{color:var(--muted);font-size:13px}
+.product-card button{margin-top:auto;padding:10px;border-radius:8px;border:none;background:var(--wh);color:#fff;cursor:pointer}
+ 
+/* footer */
+.site-footer{text-align:center;padding:16px 0;background:#fff;border-top:1px solid #eee}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(2,6,23,0.5);display:none;align-items:center;justify-content:center;z-index:9999;padding:18px}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{width:100%;max-width:980px;background:var(--card);border-radius:12px;padding:18px;position:relative;box-shadow:0 30px 60px rgba(2,6,23,0.2)}
+.modal-close{position:absolute;right:12px;top:10px;background:transparent;border:none;font-size:20px;cursor:pointer}
+
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.modal-left img{width:100%;height:320px;object-fit:cover;border-radius:8px}
+.modal-right h3{margin:0 0 6px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+#optionsArea{margin:12px 0}
+.option-group{margin-bottom:10px}
+.option-group label{display:block;margin-bottom:6px;font-weight:600}
+.size-list, .color-list{display:flex;gap:8px;flex-wrap:wrap}
+.size-item, .color-item{padding:8px 12px;border-radius:6px;border:1px solid #eee;cursor:pointer;background:#fff}
+.size-item.active, .color-item.active{background:var(--accent);color:#fff;border-color:transparent}
+
+.qty-row{display:flex;justify-content:space-between;align-items:center;margin:12px 0}
+.qty-controls{display:flex;align-items:center;gap:8px}
+.qty-controls .btn-ghost{padding:6px 10px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+#qtyVal{min-width:36px;text-align:center}
+
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+.price-row.total{font-weight:700;border-top:1px dashed #eee;padding-top:12px}
+
+.form-row{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.form-row input, .form-row select, .form-row textarea{padding:8px;border-radius:8px;border:1px solid #ddd;width:100%}
+.form-row textarea{min-height:80px;resize:vertical}
+
+.modal-actions{display:flex;gap:8px;margin-top:12px}
+.btn-primary{background:var(--wh);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.btn-ghost{background:transparent;border:1px solid #ddd;padding:10px 14px;border-radius:8px;cursor:pointer}
+/* ========== LOADER (upgraded) ========== */
+#loader{
+  position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(246,247,251,0.95));
+  transition:opacity .50s ease, visibility 50s ease;
+}
+.loader-circle{
+  width:90px;height:90px;border-radius:50%;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#fff,#fbfbfb);
+  box-shadow: 0 12px 40px rgba(15,20,30,0.12);
+}
+.loader-circle::before{
+  content:'';position:absolute;inset:6px;border-radius:50%;border:6px solid rgba(0,0,0,0.06);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+}
+.loader-circle::after{
+  content:'';position:absolute;inset:12px;border-radius:50%;
+  border-top:6px solid var(--wh);
+  border-right:6px solid transparent;
+  border-bottom:6px solid transparent;
+  border-left:6px solid transparent;
+  animation:loaderSpin 0.95s linear infinite;
+}
+.loader-label{
+  margin-top:14px;font-weight:600;color:var(--muted);font-size:14px;text-align:center;
+  opacity:0; animation:labelFade 700ms ease 300ms forwards;
+}
+@keyframes loaderSpin{ to{ transform: rotate(360deg); } }
+@keyframes labelFade{ from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)} }
+
+/* when loader fades out (use JS to set display:none after fade) */
+#loader.hidden{ opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-6px) }
+
+
+/* bottom nav */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 6px;z-index:9998}
+.bottom-nav .nav-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#444;font-size:12px}
+.bottom-nav .whatsapp-btn{color:var(--wh);font-size:20px}
+
+ /* ===== FIX MODAL OVERFLOW AND IMAGE SIZE ===== */
+
+/* Modal container scroll fix */
+.modal-content {
+  max-height: 92vh;
+  overflow-y: auto;
+  padding-bottom: 90px; /* space for buttons */
+}
+
+/* Force smaller product image inside modal */
+.modal-left img {
+  width:100%;
+  object-fit: cover;
+  border-radius: 10px;
+  max-height: 220px;
+}
+
+/* MOBILE FIX */
+@media(max-width: 480px) {
+
+  /* Force modal to shrink on small phones */
+  .modal-content {
+    padding: 12px;
+    max-height: 88vh !important;
+  }
+
+  /* Force image smaller on mobile */
+  .modal-left img {
+    max-height: 160px !important;
+  }
+
+  /* Stack modal content properly */
+  .modal-grid {
+    display: block;
+  }
+
+/* ===== FIXED ACTION BUTTONS ===== */
+.modal-actions {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+.modal {
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content {
+  max-width: 600px;
+  width: 95%;
+  max-height: 95vh;
+  background: #fff;
+  border-radius: 14px;
+  overflow-y: auto;
+}
+  :root{
+  --accent:#ff9800;
+  --wh:#ff9800;
+  --muted:#666;
+  --card:#fff;
+}
+}
+/* ===== MOBILE GRID FIX ===== */
+@media (max-width: 480px) {
+  .product-area {
+    grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+    gap: 12px; /* slightly smaller gap for mobile */
+  }
+
+  .product-card img {
+    height: 160px; /* optional: adjust image height for mobile */
+  }
+}
+
+/* Optional: extra small screens */
+@media (max-width: 360px) {
+  .product-area {
+    grid-template-columns: 1fr; /* 1 product per row for very small screens */
+  }
+}
